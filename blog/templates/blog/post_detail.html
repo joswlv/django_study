@@ -10,8 +10,19 @@
         {% if user.is_authenticated %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <a class="btn btn-default" href="{% url 'post_delete' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <a class="btn btn-default" href="{% url 'post_comment' pk=post.pk %}"><span class="glyphicon glyphicon-comment"></span></a>
+
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+
+        <ul>
+          {% for comment in post.comment_set.all %}
+            <li>
+              {{comment.message}}
+              <small>by {{comment.author}},{{comment.created_date}}</small>
+            </li>
+          {% endfor %}
+        </ul>
     </div>
 {% endblock %}
