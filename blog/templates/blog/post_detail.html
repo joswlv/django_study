@@ -20,7 +20,8 @@
           {% for comment in post.comment_set.all %}
             <li>
               {{comment.message}}
-              <small>by {{comment.author}},{{comment.created_date}}</small>
+              <small>by {{comment.author}} 님 , {{comment.created_date}}</small>
+              <a href="{% url 'post_comment_edit' post.pk comment.pk %}"><span class="glyphicon glyphicon-edit"></span></a>
             </li>
           {% endfor %}
         </ul>
