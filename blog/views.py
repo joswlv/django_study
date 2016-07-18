@@ -16,10 +16,11 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            post.photo = request.FILES['photo']
             post.published_date = timezone.now()
             post.save()
             return redirect('blog.views.post_detail', pk=post.pk)
