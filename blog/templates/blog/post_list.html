@@ -1,12 +1,12 @@
 {% extends 'blog/base.html' %}
   {% block content %}
     {% for post in posts %}
-      <div class="post">
+      <div class="post col-md-4">
         <div class="date">
           {{ post.published_date }}
+          <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|slice:"0:4"}}...</a></h1>
+
         </div>
-          <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-          <p>{{ post.text|linebreaksbr }}</p>
       </div>
   {% endfor %}
 {% endblock content %}
