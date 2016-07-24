@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="{% static 'js/chart.js' %}"></script>
     </head>
     <body>
     <div class="page-header">
@@ -15,14 +17,17 @@
         <h1><a href="/">Wan's Blog</a></h1>
     </div>
     <div class="content container">
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-10">
-            {% block content %}
-            {% endblock %}
-          </div>
-          <div class="col-md-1"></div>
+      <div class = "chart">
+        <div><h2 style="text-align: center;">서울시 구별 인구 분포도(D3.js실습)</h2></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          {% block content %}
+          {% endblock %}
         </div>
+        <div class="col-md-1"></div>
+      </div>
     </div>
 </body>
 </html>
